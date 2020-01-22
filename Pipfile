@@ -7,7 +7,7 @@ verify_ssl = true
 pylint = "*"
 
 [packages]
-flask-restful = "*"
+flask = "*"
 
 [requires]
 python_version = "3.7"

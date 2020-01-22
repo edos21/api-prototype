@@ -25,4 +25,12 @@ def create_review():
   reviews.append(review)
   return jsonify(review)
 
+@app.route('/v1/review/<int:id>', methods=['DELETE'])
+def delete_review(id):
+  review = next(filter(lambda x: x['id'] == id, reviews), None)
+  if review:
+    review["is_deleted"] = True
+    return {'message': "The review was deleted!"}
+  else:
+    return {'message': "A review with the ID '{}' does not exists.".format(id)}, 400
 app.run(port=5000)
